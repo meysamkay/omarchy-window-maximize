@@ -1,4 +1,4 @@
-# Window Maximize Plugin (`meysam.window-maximize`)
+# Window Maximize Plugin (`io.github.meysamkay.window-maximize`)
 
 A status bar widget and keyboard dispatcher for **Omarchy / Hyprland** to maximize and restore windows cleanly.
 
@@ -27,9 +27,36 @@ In Hyprland, standard full screen (`SUPER + F` / exclusive fullscreen):
 
 Toggle window maximization with **`SUPER + ALT + F`** (press once to maximize, press again to restore to its original tiled size).
 
-This is configured in [bindings.lua](file:///home/meysam/.config/hypr/bindings.lua):
+This is configured in `~/.config/hypr/bindings.lua`:
 
 ```lua
 -- Maximize window (preserves gaps, top bar, and allows modal dialogs to display)
 o.rebind("SUPER + ALT + F", "Maximize window", "omarchy-window-maximize toggle")
 ```
+
+## Installation
+
+Install directly through the Omarchy shell plugin manager:
+
+```bash
+omarchy plugin add https://github.com/meysamkay/omarchy-window-maximize.git --enable
+```
+
+## Removal
+
+To remove the plugin:
+
+```bash
+omarchy plugin remove io.github.meysamkay.window-maximize
+```
+
+## Dependencies
+
+- Omarchy Quattro shell (`quickshell`)
+- Hyprland compositor
+- `jq` (standard in Omarchy)
+- No root or elevated privileges required.
+
+## License
+
+MIT License. See [LICENSE](LICENSE) for details.

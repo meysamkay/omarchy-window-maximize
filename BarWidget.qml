@@ -8,7 +8,7 @@ import qs.Ui
 
 BarWidget {
   id: root
-  moduleName: "meysam.window-maximize"
+  moduleName: "io.github.meysamkay.window-maximize"
 
   Commons.Translations {
     id: strings
