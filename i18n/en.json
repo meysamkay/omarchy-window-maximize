@@ -1,0 +1,6 @@
+{
+  "tooltip.maximize": "Maximize window",
+  "tooltip.restore": "Restore window",
+  "tooltip.unfullscreen": "Exit full screen to maximize",
+  "tooltip.noWindow": "No active window"
+}

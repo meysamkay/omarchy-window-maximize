@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "meysam.window-maximize",
+  "name": "Window Maximize",
+  "version": "1.0.0",
+  "description": "Maximize and restore the active window like a single-window workspace without breaking modal dialogs",
+  "author": "Meysam",
+  "license": "MIT",
+  "kinds": [
+    "bar-widget"
+  ],
+  "entryPoints": {
+    "barWidget": "BarWidget.qml"
+  },
+  "barWidget": {
+    "displayName": "Maximize Window",
+    "description": "Maximize or restore the active window",
+    "category": "Window Management",
+    "allowMultiple": false,
+    "defaultSection": "left"
+  }
+}
