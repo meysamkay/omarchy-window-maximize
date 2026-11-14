@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "id": "io.github.meysamkay.window-maximize",
   "name": "Window Maximize",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Maximize and restore the active window like a single-window workspace without breaking modal dialogs",
   "author": "Meysam",
   "license": "MIT",

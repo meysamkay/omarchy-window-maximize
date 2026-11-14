@@ -1,5 +1,7 @@
 # Window Maximize Plugin (`io.github.meysamkay.window-maximize`)
 
+![Window Maximize preview](preview.png)
+
 A status bar widget, keyboard dispatcher, and window rules package for **Omarchy / Hyprland** to maximize and restore windows cleanly while ensuring dialogs and popups float properly.
 
 ## Why Maximize Instead of Full Screen?
@@ -46,14 +48,13 @@ To enable them, add this one-liner to the bottom of `~/.config/hypr/hyprland.lua
 do local path = os.getenv("HOME") .. "/.config/omarchy/plugins/io.github.meysamkay.window-maximize/rules.lua"; local file = io.open(path, "r"); if file then file:close(); dofile(path) end end
 ```
 
-Alternatively, you can paste the rules directly into your `hyprland.lua`:
+Dialogs are centered over the previously focused app (preferring a window from the same process). Their initial size is capped at 80% of the app's width and height, up to 1100 × 800 pixels. Smaller dialogs keep their requested size. Without an identifiable owner, they open centered on their monitor with a smaller size cap.
 
-```lua
-o.window({ modal = true }, { float = true, center = true })
-o.window({
-  title = "^(Open.*Files?|Open [F|f]older.*|Save.*Files?|Save.*As|Save|All Files|Confirm|Select a File|Choose.*|Preferences|File Upload).*",
-}, { float = true, center = true })
-```
+Dialog maximize/fullscreen requests are suppressed. The plugin snapshots the focused parent's maximized state before the dialog maps and preserves it when the child opens. The dialog is placed before receiving focus, then raised above the app without moving the pointer. Opening does not reset the parent's fullscreen state; the parent-state restoration is only a fallback. Closing the child leaves the parent's maximized state and geometry unchanged.
+
+Both modal dialogs and common Open/Save/Import/Export file chooser titles are supported, including Qt's plain “Open” title and descriptive titles such as “Choose CalculiX working directory” that do not advertise a modal role. These rules apply when a dialog opens; close and reopen an existing dialog after updating. Application minimum sizes can limit how small a dialog can become.
+
+Keep the `dofile` loader above instead of pasting just the window rules: `rules.lua` also installs the callback that sizes and positions dialogs relative to the app window.
 
 ## Installation
 
